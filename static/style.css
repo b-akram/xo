@@ -1,0 +1,48 @@
+*::selection{
+    background:transparent;
+}
+.game{
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+
+    background: rgb(247, 204, 204) ;
+
+}
+.game .row{
+    display: flex;
+    min-height: 33.333333%;
+
+}
+
+
+
+
+.cell{
+    font-family: 'Indie Flower', cursive;
+
+    min-height: 33.333333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 0;
+    border:2px solid maroon ;
+    box-sizing: border-box ;
+    color : white;
+    font-size: 63px ;
+    font-weight: bold;
+
+}
+.bt-0{
+    border-top: none
+}
+.br-0{
+    border-right: none
+}
+.bl-0{
+    border-left: none
+}
+.bb-0{
+    border-bottom: none
+}
+
