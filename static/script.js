@@ -1,6 +1,5 @@
 var cells = document.getElementsByClassName("cell")
 var char = ["X", "O"]
-
 var color = ["black", "rgb(59, 84, 116)"]
 
 var conf = [
@@ -8,23 +7,25 @@ var conf = [
     ["_", "_", "_"],
     ["_", "_", "_"]
 ]
+start()
 
-var count = 0
 
-for (var i = 0; i < cells.length; i++) {
-    const element = cells[i];
-    element.onclick = function () {
-        var index = this.getAttribute("data-index")
-        this.onclick = ""
-        this.innerHTML = char[0]
-        conf[parseInt(index / 3)][parseInt(index % 3)] = char[0]
-        this.style.color = color[0]
-        var c = ""
-        char.push(c =char.shift())
-        color.push(c = color.shift())
-        evaluate()
-        // if (evaluate()) finish()
+function start() {
+    for (var i = 0; i < cells.length; i++) {
+        const element = cells[i];
+        element.onclick = function () {
+            var index = this.getAttribute("data-index")
+            this.onclick = ""
+            this.innerHTML = char[0]
+            conf[parseInt(index / 3)][parseInt(index % 3)] = char[0]
+            this.style.color = color[0]
+            var c = ""
+            char.push(c = char.shift())
+            color.push(c = color.shift())
+            evaluate()
+            // if (evaluate()) finish()
 
+        }
     }
 }
 
