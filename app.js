@@ -3,5 +3,5 @@ let app = express()
 let path = require("path")
 app.use("/",express.static(path.join(__dirname,"static")))
 
-app.listen(80)
+app.listen(8080)
  
