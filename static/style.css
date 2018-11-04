@@ -62,3 +62,21 @@ body{
     display: none;
     transform-origin: 0 0 ;
 }
+
+#init-game{
+    margin: 50px ;
+    padding: 6px 35px ;
+    font-size: 18px ;
+    font-weight: bold ;
+    background: rgb(87, 131, 70);
+    border: none ;
+    outline: none ;
+    cursor: pointer;
+    color: whitesmoke
+}
+#init-game:hover{
+    background: rgb(115, 172, 92);
+}
+#init-game:active{
+    background: rgb(157, 235, 126);
+}
