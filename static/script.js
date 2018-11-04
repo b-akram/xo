@@ -20,6 +20,7 @@ function init() {
         cells[i].innerHTML = "";
     }
     line.style.display = "none"
+    line.style.transform = "none"
     start()
 }
 start()
@@ -33,9 +34,7 @@ function start() {
             console.log(best);
             if (evaluate()) return;
             makeMove(cells[best.row * 3 + best.col])
-            if (evaluate()) return;
-            //cells[best.row * 3 + best.col].onclick()
-
+            evaluate()
         }
     }
 }
@@ -128,28 +127,28 @@ function evaluate() {
 function evaluate2() {
 
     for (let index = 0; index < 3; index++) {
-        if (conf[index][0] != "_" && conf[index][0] == conf[index][1] && conf[index][1] == conf[index][2]) {
+        if (conf[index][0] != "_" &&
+            conf[index][0] == conf[index][1] &&
+            conf[index][1] == conf[index][2]) {
             return conf[index][0] === "X" ? -10 : 10;
         }
     }
     for (let index = 0; index < 3; index++) {
-        if (conf[0][index] != "_" && conf[0][index] == conf[1][index] && conf[1][index] == conf[2][index]) {
-
+        if (conf[0][index] != "_" &&
+            conf[0][index] == conf[1][index] &&
+            conf[1][index] == conf[2][index]) {
             return conf[0][index] === "X" ? -10 : 10;
         }
     }
-
-    if (conf[0][0] != "_" && conf[0][0] == conf[1][1] && conf[1][1] == conf[2][2]) {
-
+    if (conf[0][0] != "_" &&
+        conf[0][0] == conf[1][1] &&
+        conf[1][1] == conf[2][2]) {
         return conf[0][0] === "X" ? -10 : 10;
-
     }
-
-    if (conf[0][2] != "_" && conf[0][2] == conf[1][1] && conf[1][1] == conf[2][0]) {
-
-
+    if (conf[0][2] != "_" &&
+        conf[0][2] == conf[1][1] &&
+        conf[1][1] == conf[2][0]) {
         return conf[0][2] === "X" ? -10 : 10;
-
     }
     return 0
 }
@@ -161,7 +160,7 @@ function isLeft() {
             if (conf[i][j] === "_") return true
         }
     }
-    return true
+    return false
 }
 
 function max(a, b) {
@@ -173,7 +172,6 @@ function min(a, b) {
 }
 
 function minimax(mode, depth) {
-
     var score = evaluate2()
     if (score != 0) return score
     if (!isLeft()) {
